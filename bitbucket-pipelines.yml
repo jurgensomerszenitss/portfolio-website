@@ -13,13 +13,11 @@ pipelines:
           - npm install
           - npm run build
         artifacts:
-          - dist/*
-          - dist/**/*
-          - dist/**/**
+          - dist/**
      - step:
-          name: deploy
+          name: Deploy
+          deployment: Production
           script:
             - apt-get update
             - apt-get install ncftp
-            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dist/*
-       
+            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST . dist/*
