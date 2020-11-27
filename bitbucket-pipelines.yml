@@ -18,4 +18,6 @@ pipelines:
           trigger: automatic
           deployment: Production
           script:
-            - lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST
+             - apt-get update
+             - apt-get -qq install git-ftp
+             - git ftp push --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://FTP_HOST
