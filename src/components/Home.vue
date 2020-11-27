@@ -7,7 +7,7 @@
     <div class="page">
       <div class="panel content left">
         <transition name="slide-fade">
-          <span v-if="show">
+          <span v-if="isMounted">
             Here we want to inform you about who we are and what we do.<br/>
             And what makes us one of the best in it.
             </span>
@@ -21,13 +21,21 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { store }  from '../store/store'; 
+
 export default {
-  name: 'Home',
-  props: {
-    show: Boolean
+  name: 'Home', 
+  computed: {  
+    ...mapGetters({  
+    isMounted:"isHomeMounted"
+    }),
   },
   mounted() {
-    this.show = true; // might need this.$nextTick
+    store.dispatch('onHomeMounted',true);
+  },
+  beforeDestroy(){
+    store.dispatch('onHomeMounted',false);
   }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <router-link   to="/">
         <a class="navbar-brand" href="#"><img src="../assets/img/logo.gif" width="48" height="48"><img src="../assets/img/banner.png" height="48"></a>
         </router-link>
@@ -88,11 +88,11 @@ a.nav-link.active{
     color:var(--zss-theme-option)!important;
 }
 
-.navbar-toggler-icon {
+/* .navbar-toggler-icon {
     background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280,280,280, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")!important;
-}
+} */
 
-.navbar-toggler {
+/* .navbar-toggler {
     border-color: var(--zss-gray)!important;
-}
+} */
 </style>

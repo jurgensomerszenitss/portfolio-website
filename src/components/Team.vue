@@ -1,7 +1,9 @@
 <template>
   <div>
      <div class="panel">
-      <h1>Our team</h1>    
+          <transition name="slide-fade">
+            <h1 v-if="isMounted">Our team</h1>  
+          </transition> 
     </div>
 
     <div class="page">
@@ -11,7 +13,7 @@
                 <img src="../assets/img/jurgen.jpg" class="photo">
             </div>
              <transition name="slide-fade">
-                <div class="inline title" v-if="show"> 
+                <div class="inline title" v-if="isMounted"> 
     
                     <h3>Jurgen Somers</h3>
                     <h4>CEO / founder</h4>
@@ -21,19 +23,20 @@
             </transition>
         </div>
 
-        <div class="panel content left">
+         <div class="panel content left">
             <div class="inline photo">
                 <img src="../assets/img/ksenia.jpg" class="photo">
             </div>
              <transition name="slide-fade">
-                <div class="inline title"  v-if="show">
+                <div class="inline title"  v-if="isMounted">
                     <h3>Ksenia Medova</h3>
                     <h4>CCO / Co-founder</h4>
-                    Experienced in sales and management since 2006
+                    Experienced in sales and management since 2003
                     <!-- <a href="mailto:ksenia@zenitss.eu">ksenia@zenitss.eu</a> -->
                 </div> 
              </transition>
         </div>
+
 
         <div class="panel content center">
             Each team member is a specialist in their area.<br/>
@@ -45,13 +48,21 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { store }  from '../store/store'; 
+
 export default {
   name: 'Team',
-  props: {
-    show: Boolean
+   computed: {  
+    ...mapGetters({  
+    isMounted:"isTeamMounted"
+    }),
   },
   mounted() {
-    this.show = true; // might need this.$nextTick
+    store.dispatch('onTeamMounted',true);
+  },
+  beforeDestroy(){
+    store.dispatch('onTeamMounted',false);
   }
 }
 </script>

@@ -1,18 +1,21 @@
 <template>
   <section class="VideoBg">
+    <div  id="video-overlay">
      <video id="videoBG" poster="background.jpg" autoplay muted loop>
       <source src="./assets/img/background.mp4" type="video/mp4">
     </video>
+    </div>
 
     <div id="app">
-      <Header/>   
-      <router-view></router-view>
+      <Header id="header"/>   
+      <router-view id="routerview"></router-view>
       <Footer id="footer"/>
     </div>
-  </section> 
+  </section>   
 </template>
 
-<script>
+
+<script> 
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue';
 
@@ -33,7 +36,8 @@ export default {
 
 <style>
 /* Bootstrap Css */
-@import 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css';
+@import'~bootstrap/dist/css/bootstrap.css';
+/* @import 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'; */
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Goldman&family=Roboto&display=swap'); 
@@ -52,10 +56,21 @@ export default {
 }
 
 #footer {
-  position:absolute;
+  position:fixed;
   bottom: 0px;
   width:100%;
   height: 40px;
+}
+
+ #header {
+ position:fixed;
+ top: 0px; 
+ width:100%;
+ z-index:100;
+} 
+
+#routerview {
+  padding-top:74px;
 }
 
 #videoBG {
@@ -63,6 +78,10 @@ export default {
     z-index: -1;
     width:100%;     
     height: auto;
+}
+
+#video-overlay { 
+  opacity: 1; 
 }
 
 @media (min-aspect-ratio: 16/9) {

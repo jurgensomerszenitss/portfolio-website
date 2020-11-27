@@ -3,6 +3,8 @@ import VueRouter from 'vue-router';
 import App from './App.vue'
 import { store } from './store/store';
 import routes from './routes';
+import 'jquery';
+import 'bootstrap';
 
 
 Vue.config.productionTip = false
@@ -11,6 +13,9 @@ const router = new VueRouter({
 })
 
 Vue.use(VueRouter);
+
+
+
 
 var vm = new Vue({
   router,
