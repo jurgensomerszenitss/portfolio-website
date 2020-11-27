@@ -8,7 +8,7 @@
 
         <div class="panel content right">
             <div class="inline photo">
-                <img src="../assets/jurgen.jpg" class="photo">
+                <img src="../assets/img/jurgen.jpg" class="photo">
             </div>
              <transition name="slide-fade">
                 <div class="inline title" v-if="show"> 
@@ -23,7 +23,7 @@
 
         <div class="panel content left">
             <div class="inline photo">
-                <img src="../assets/ksenia.jpg" class="photo">
+                <img src="../assets/img/ksenia.jpg" class="photo">
             </div>
              <transition name="slide-fade">
                 <div class="inline title"  v-if="show">

@@ -1,7 +1,7 @@
 <template>
   <section class="VideoBg">
      <video id="videoBG" poster="background.jpg" autoplay muted loop>
-      <source src="./assets/background.mp4" type="video/mp4">
+      <source src="./assets/img/background.mp4" type="video/mp4">
     </video>
 
     <div id="app">
@@ -39,9 +39,9 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Goldman&family=Roboto&display=swap'); 
 
 /* Theme */
-@import url('./assets/colors.scss'); 
-@import url('./assets/containers.scss'); 
-@import url('./assets/animations.scss'); 
+@import url('./assets/css/colors.scss'); 
+@import url('./assets/css/containers.scss'); 
+@import url('./assets/css/animations.scss'); 
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

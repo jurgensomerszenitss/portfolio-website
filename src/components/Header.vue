@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <router-link   to="/">
-        <a class="navbar-brand" href="#"><img src="../assets/logo.gif" width="48" height="48"><img src="../assets/banner.png" height="48"></a>
+        <a class="navbar-brand" href="#"><img src="../assets/img/logo.gif" width="48" height="48"><img src="../assets/img/banner.png" height="48"></a>
         </router-link>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
