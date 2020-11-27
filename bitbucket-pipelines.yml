@@ -1,20 +1,21 @@
-# This is an example Starter pipeline configuration
-# Use a skeleton to build, test and deploy using manual and parallel steps
-# -----
-# You can specify a custom docker image from Docker Hub as your build environment.
-image: node:8.12.0
+#  Template NodeJS Web Application for Azure Web App service
 
-pipelines:
+#  This template allows you to deploy your NodeJS web application to Azure Web App Service.
+#  The workflow allows running tests, code linting and security scans on feature branches (as well as master).
+#  The NodeJS application will be validated after the code is merged to master and deployment can be triggered manually.
+
+# Prerequisites: $$AZURE_APP_ID, $AZURE_PASSWORD, $AZURE_TENANT_ID, $AZURE_RESOURCE_GROUP, $AZURE_APP_NAME setup in the Deployment variables.
+# For advanced cases, please, follow examples from the pipe's README https://bitbucket.org/microsoft/azure-web-apps-deploy/src/1.0.3/README.md
+
+
+image: node:10.15.3
+
+pipelines: 
   branches:
     master:
       - step:
-          name: Generate Static Files
-          caches:
-            - node
+          name: Deploy to Production
+          trigger: automatic
+          deployment: Production
           script:
-            - npm install
-            - npm run build
-          artifacts:
-            - dist/*
-            - dist/**/*
-            - dist/**/**
+            - lftp -u $FTP_USERNAME,$FTP_PASSWORD $FTP_HOST
