@@ -4,7 +4,7 @@ image: node:10.15.3
 pipelines: 
   branches:
     master:
-    - step:
+     - step:
         name: Generate Static Files
         caches:
           - node
@@ -16,3 +16,10 @@ pipelines:
           - dist/*
           - dist/**/*
           - dist/**/**
+     - step:
+          name: deploy
+          script:
+            - apt-get update
+            - apt-get install ncftp
+            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dist/*
+       
