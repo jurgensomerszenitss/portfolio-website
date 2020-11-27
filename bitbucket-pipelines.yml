@@ -15,17 +15,15 @@ pipelines:
   branches:
     master:
     - step:
--          name: Generate Static Files
--          caches:
--            - node
-+          name: Deploy to Production
-+          trigger: automatic
-+          deployment: Production
-           script:
--            - npm install
--            - npm run build
--          artifacts:
--            - dist/*
--            - dist/**/*
--            - dist/**/**
+        name: Generate Static Files
+        caches:
+          - node
+          - composer
+       script:
+          - npm install
+          - npm run build
+       artifacts:
+          - dist/*
+          - dist/**/*
+          - dist/**/**
 
