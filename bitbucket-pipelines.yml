@@ -8,16 +8,24 @@
 # For advanced cases, please, follow examples from the pipe's README https://bitbucket.org/microsoft/azure-web-apps-deploy/src/1.0.3/README.md
 
 
+
 image: node:10.15.3
 
 pipelines: 
   branches:
     master:
-      - step:
-          name: Deploy to Production
-          trigger: automatic
-          deployment: Production
-          script:
-             - apt-get update
-             - apt-get -qq install git-ftp
-             - git ftp push --user $FTP_USERNAME --passwd $FTP_PASSWORD ftp://$FTP_HOST
+    - step:
+-          name: Generate Static Files
+-          caches:
+-            - node
++          name: Deploy to Production
++          trigger: automatic
++          deployment: Production
+           script:
+-            - npm install
+-            - npm run build
+-          artifacts:
+-            - dist/*
+-            - dist/**/*
+-            - dist/**/**
+
