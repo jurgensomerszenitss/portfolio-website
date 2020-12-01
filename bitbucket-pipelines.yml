@@ -14,7 +14,7 @@ pipelines:
           - npm run build
         artifacts:
           - dist/**
-      - step:
+     - step:
         name: Deploy
         deployment: Production
         script:
