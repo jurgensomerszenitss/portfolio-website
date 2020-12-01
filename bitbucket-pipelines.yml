@@ -40,5 +40,5 @@ pipelines:
             - apt-get update
             - apt-get install ncftp
             - apt-get install lftp
-            - lftp -e "open $FTP_HOST; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --delete dev/"
+            - lftp -e "open $FTP_HOST; user $FTP_USERNAME,$FTP_PASSWORD; mirror --reverse --delete dev/"
             - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dev dist/*
