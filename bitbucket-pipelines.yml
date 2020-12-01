@@ -39,4 +39,4 @@ pipelines:
           script:
             - apt-get update
             - apt-get install ncftp
-            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dev/ dist/*
+            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dev dist/*
