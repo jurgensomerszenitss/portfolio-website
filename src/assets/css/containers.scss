@@ -1,16 +1,46 @@
+div.page {
+    margin-left:50px;
+    margin-right:50px;
+    padding-bottom:50px;
+}
+
 div.panel {
     font-family: 'Roboto', sans-serif;
+    font-size: 12pt;
+    font-weight: normal;
     color:var(--content-fg-primary);
     background-color:var(--content-bg-card);
     margin:0px;
+    text-align: left;
+    padding:10px;
+    margin-top:10px;
 }
 
-div.panel.content {
+div.panel.title {
+    box-sizing: border-box;
+    margin-left: 10px;
+    margin-right:10px;
+    word-wrap: break-word;
+    text-align: center;
+    padding:0px;
+}
+
+
+div.panel.subtitle {
+    padding:0px;
+}
+ 
+
+div.content {
     font-size: 12pt;
     font-weight: normal;
     text-align: left;
-    padding:5px;
-    margin-top:50px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding-left:10px;  
+    margin-right:10px;
+    overflow: hidden;
+    min-height: 128px;
 }
  
  
@@ -22,22 +52,45 @@ div.panel.left {
     margin-right:55%; 
 }
 
-div.panel.center { 
-    text-align: center;
+div.panel.half-right {  
+    margin-left:45%;  
 }
 
-div.page {
-    margin-left:50px;
-    margin-right:50px
+div.panel.half-left {  
+    margin-right:45%; 
+}
+
+div.panel.center { 
+    text-align: center;
+    width:100%;
 }
 
 div.inline {
-    display: inline-block;
-    /* float:left; */    
+    display: inline-block!important;
 }
 
 
+div.photo {
+    max-height: 128px;
+    max-width: 128px;
+    margin-top: 0px;
+    vertical-align: top;
+    text-align: left;
+    float:left;
+}
+
+div.topic {
+    max-height: 128px;
+    max-width: 128px;
+    margin-top: 0px;
+    vertical-align: top;
+    text-align: left;
+    float:left;
+}
+
 @media screen and (max-width:768px) {
+ 
+
     div.panel.right { 
         margin-left:0px;
     }
@@ -45,10 +98,51 @@ div.inline {
     div.panel.left { 
         margin-right:0px;
     }
+
+    div.panel.half-right { 
+        margin-left:0px;
+    }
+    
+    div.panel.half-left { 
+        margin-right:0px;
+    }
+
+    div.topic { 
+        text-align: center;
+        max-width: inherit;
+        visibility: collapse;
+        height: 0px;
+    } 
 }
 
 @media screen and (max-width:375px) {
+    div.page {
+        margin-left:5px;
+        margin-right:5px
+    }
+
     div.inline { 
         display: block;
     } 
+
+    div.topic { 
+        text-align: center;
+        max-width: inherit;
+        visibility: collapse;
+        height: 0px;
+    } 
+
+    div.photo { 
+        text-align: center;
+        max-width: inherit;
+        float:none;
+    } 
+
+    div.content {
+        width:100%;
+    }
 }
+
+
+
+ 

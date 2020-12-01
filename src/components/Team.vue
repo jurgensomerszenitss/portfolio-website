@@ -1,60 +1,62 @@
 <template>
   <div>
-     <div class="panel">
+     <div class="panel title">
           <transition name="slide-fade">
-            <h1 v-if="isMounted">Our team</h1>  
-          </transition> 
-    </div>
+            <h1 v-if="isMounted">Our team</h1>
+          </transition>
+    </div> 
 
-    <div class="page">
-
-        <div class="panel content right">
-            <div class="inline photo">
-                <img src="../assets/img/jurgen.jpg" class="photo">
+    <div class="page"> 
+        <div class="panel center subtitle">
+          <transition name="slide-fade">   
+            <div v-if="isMounted">            
+              <h4>Management</h4>
             </div>
-             <transition name="slide-fade">
-                <div class="inline title" v-if="isMounted"> 
-    
+          </transition> 
+        </div>
+
+        <div class="panel right">
+           <div class="photo">
+               <img src="../assets/img/jurgen.jpg" class="photo">
+            </div>
+            <transition name="slide-fade">               
+                <div class="content" v-if="isMounted">
                     <h3>Jurgen Somers</h3>
                     <h4>CEO / founder</h4>
                     Active in IT since 2001<br/>
-                    <!-- <a href="mailto:jurgen@zenitss.eu">jurgen@zenitss.eu</a> -->
                 </div>
-            </transition>
+            </transition> 
         </div>
 
-         <div class="panel content left">
-            <div class="inline photo">
+         <div class="panel left">
+            <div class="photo">
                 <img src="../assets/img/ksenia.jpg" class="photo">
             </div>
              <transition name="slide-fade">
-                <div class="inline title"  v-if="isMounted">
+                <div class="content"  v-if="isMounted">
                     <h3>Ksenia Medova</h3>
                     <h4>CCO / Co-founder</h4>
                     Experienced in sales and management since 2003
-                    <!-- <a href="mailto:ksenia@zenitss.eu">ksenia@zenitss.eu</a> -->
-                </div> 
+                </div>
              </transition>
         </div>
 
 
-        <div class="panel content center">
-            Each team member is a specialist in their area.<br/>
-            Before we increase our team, everyone is tested on their skills.<br/>
-            And once a new team member is added to the family, we support them with all they need.
-        </div>
+        <!-- <div class="panel center">
+            All of our people are specialists in their area<br/>
+        </div> -->
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { store }  from '../store/store'; 
+import { store }  from '../store/store';
 
 export default {
   name: 'Team',
-   computed: {  
-    ...mapGetters({  
+   computed: {
+    ...mapGetters({
     isMounted:"isTeamMounted"
     }),
   },
@@ -69,50 +71,4 @@ export default {
 
 <style scoped>
 
-h1 {
-    font-family: 'Goldman', sans-serif;    
-    margin-top:60px;
-    color:var(--content-fg-primary);
-} 
-
-h3 {
-      font-family: 'Goldman', sans-serif;    
-}
-
-h4 {
-      font-family: 'Goldman', sans-serif;    
-}
-
-a {
-    color:white;
-}
-
-a:hover {
-    color:white;
-}
-
-
-img.photo {
-    width:128px;
-    height: 128px;
-}
-
-div.photo {
-    max-height: 128px;
-    max-width: 128px;
-    margin-top: 0px;
-    vertical-align: top;
-}
-
-div.title {
-    margin-left: 10px;
-}
-
-
-@media screen and (max-width:375px) {
-    div.photo { 
-        text-align: center;
-        max-width: inherit;
-    } 
-}
 </style>

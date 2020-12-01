@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="panel">
+    <div class="panel title">
       <h1>Welcome at <br/>Zenit Software Solutions</h1>    
     </div>
 

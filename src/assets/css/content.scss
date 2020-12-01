@@ -1,0 +1,46 @@
+
+
+img.photo {
+    border-radius: 50%;
+    width:128px;
+    height: 128px;
+}
+
+img.topic {
+    width:128px;
+    height: 128px;
+    border-radius: 5px;
+}
+
+
+h1 {
+    font-family: 'Goldman', sans-serif;    
+    margin-top:60px;
+    color:var(--content-fg-primary);
+} 
+
+h2 {
+    font-family: 'Goldman', sans-serif;    
+}
+
+h3 {
+      font-family: 'Goldman', sans-serif;    
+      border-bottom: solid 1px var(--zss-theme-primary);
+      width:100%;
+}
+
+h4 {
+      font-family: 'Goldman', sans-serif;    
+}
+
+a {
+    color:white;
+}
+
+a:hover {
+    color:white;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}

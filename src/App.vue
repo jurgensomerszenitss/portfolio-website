@@ -38,7 +38,6 @@ export default {
 <style>
 /* Bootstrap Css */
 @import'~bootstrap/dist/css/bootstrap.css';
-/* @import 'https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css'; */
 
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Goldman&family=Roboto&display=swap'); 
@@ -47,6 +46,7 @@ export default {
 @import url('./assets/css/colors.scss'); 
 @import url('./assets/css/containers.scss'); 
 @import url('./assets/css/animations.scss'); 
+@import url('./assets/css/content.scss'); 
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -83,6 +83,12 @@ export default {
 
 #video-overlay { 
   opacity: 1; 
+}
+
+@media screen and (max-width:375px){
+  #routerview {
+  padding-top:24px;
+}
 }
 
 @media (min-aspect-ratio: 16/9) {
