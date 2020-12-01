@@ -39,5 +39,5 @@ pipelines:
           script:
             - apt-get update            
             - apt-get install lftp
-            - lftp -u $FTP_USERNAME,$FTP_PASSWORD -e "set ftp:ssl-allow no; mirror --delete -vvv -R dist/* dev;quit" $FTP_HOST
+            - lftp -u $FTP_USERNAME,$FTP_PASSWORD -e "set ftp:ssl-allow no; mirror --delete -vvv -R dist dev;quit" $FTP_HOST
             
