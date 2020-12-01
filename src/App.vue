@@ -63,10 +63,10 @@ export default {
 }
 
  #header {
- position:fixed;
- top: 0px; 
- width:100%;
- z-index:100;
+  position:fixed;
+  top: 0px; 
+  width:100%;
+  z-index:100;
 } 
 
 #routerview {
@@ -74,10 +74,10 @@ export default {
 }
 
 #videoBG {
-    position:fixed;
-    z-index: -1;
-    width:100%;     
-    height: auto;
+  position:fixed;
+  z-index: -1;
+  width:100%;     
+  height: auto;
 }
 
 #video-overlay { 
@@ -85,17 +85,17 @@ export default {
 }
 
 @media (min-aspect-ratio: 16/9) {
-    #videoBG {
-        width:100%;
-        height: auto;
-    }
+  #videoBG {
+    width:100%;
+    height: auto;
+  }
 }
 
 @media (max-aspect-ratio: 16/9) {
-    #videoBG { 
-        width:auto;
-        height: 100%;
-    }
+  #videoBG { 
+    width:auto;
+    height: 100%;
+  }
 }
 
 
