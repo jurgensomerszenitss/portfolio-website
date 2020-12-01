@@ -15,7 +15,7 @@ pipelines:
         artifacts:
           - dist/**
      - step:
-        name: Deploy
+        name: Deploy to Production
         deployment: Production
         script:
           - apt-get update
@@ -32,18 +32,9 @@ pipelines:
           - npm install
           - npm run build
         artifacts:
-          - dist/**
+          - dist/**    
      - step:
-          name: Deploy
-          deployment: Development
-          script:
-            - apt-get update
-            - apt-get install ncftp
-            - apt-get install lftp
-            - lftp -e "open $FTP_HOST; user $FTP_USERNAME,$FTP_PASSWORD; mirror --reverse --delete dev/"
-            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dev dist/*
-     - step:
-          name: Deploy
+          name: Deploy to DEV
           deployment: Development
           script:
             - apt-get update
