@@ -1,7 +1,7 @@
 <template>
   <section class="VideoBg">
     <div  id="video-overlay">
-     <video id="videoBG" poster="background.jpg" autoplay muted loop>
+     <video id="videoBG" poster="background.jpg" autoplay muted loop playsinline>
       <source src="./assets/img/background.mp4" type="video/mp4">
     </video>
     </div>
@@ -32,6 +32,7 @@ export default {
             document.title = "Zenit Software Solutions";
         }
 }
+ 
 </script>
 
 <style>

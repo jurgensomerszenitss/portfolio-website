@@ -37,8 +37,7 @@ pipelines:
           name: Deploy to DEV
           deployment: Development
           script:
-            - apt-get update
-            - apt-get install ncftp
+            - apt-get update            
             - apt-get install lftp
-            - lftp -e "open $FTP_HOST; user $FTP_USERNAME,$FTP_PASSWORD; mirror --reverse --delete dev/"
-            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dev dist/*
+            - lftp -u $FTP_USERNAME,$FTP_PASSWORD -e "set ftp:ssl-allow no; mirror --delete -vvv -R dist/* dev;quit" $FTP_HOST
+            
