@@ -2,6 +2,25 @@
 image: node:10.15.3
 
 pipelines: 
+  custom:
+    deploy-to-prod:
+     - step:
+        name: Generate Static Files
+        caches:
+          - node
+          - composer
+        script:
+          - npm install
+          - npm run build
+        artifacts:
+          - dist/**
+      - step:
+        name: Deploy
+        deployment: Production
+        script:
+          - apt-get update
+          - apt-get install ncftp
+          - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST . dist/*
   branches:
     master:
      - step:
@@ -16,8 +35,8 @@ pipelines:
           - dist/**
      - step:
           name: Deploy
-          deployment: Production
+          deployment: Development
           script:
             - apt-get update
             - apt-get install ncftp
-            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST . dist/*
+            - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST dev/ dist/*
