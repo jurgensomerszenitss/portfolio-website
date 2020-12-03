@@ -15,81 +15,81 @@
           </transition> 
         </div>
 
-        <div class="panel right">
+        <div class="panel right" v-bind:class="{leftQuoteOpen : isQuoteJurgenVisible}">
            <div class="photo">
                <img src="../assets/img/jurgen.jpg" class="photo" >               
             </div>
             <transition name="slide-fade">               
                 <div class="content" v-if="isMounted">
+                  <div v-bind:class="{leftInline : isQuoteJurgenVisible}">
                     <h3>Jurgen Somers <img src="../assets/img/quote.png" class="quote" @click="toggleQuoteJurgen()">  </h3>
                     <h4>CEO / founder</h4>
                     Active in IT since 2001<br/>                    
+                  </div>
+                  <div class="quote leftQuote" v-if="isQuoteJurgenVisible" @click="toggleQuoteJurgen()">   
+                    <p>
+                      <img src="../assets/img/quoteopen.png" class="quoteopen">  
+                      After studying 2 years of industrial computer sciences, and 3 years of business computer sciences,
+                      I started to work as a developer at Real Software.
+                      </p>
+
+                      <p>
+                      A few years later, I decided to work as a freelancer, 
+                      providing consultancy for some major international companies.
+                      </p>
+
+                      <p>
+                      The roles I was playing in the various teams,
+                      go from developer to lead-developer, technical manager and architect.
+                      </P>
+
+                      <p>
+                      Today, I can rely on many years of experience and a large
+                      technological base to help and guide clients and companies
+                      in their journey of creating a beautifull IT landscape.                
+                      <img src="../assets/img/quoteclose.png" class="quoteclose">
+                      </p>
+                  </div>
                 </div>
-            </transition> 
-            <div class="quote" v-if="isQuoteJurgenVisible" @click="toggleQuoteJurgen()">   
-              <hr class="option"    />
-              <p>
-                 <img src="../assets/img/quoteopen.png" class="quoteopen">  
-                After studying 2 years of industrial computer sciences, and 3 years of business computer sciences,
-                I started to work as a developer at Real Software.
-                </p>
-
-                <p>
-                A few years later, I decided to work as a freelancer, 
-                providing consultancy for some major international companies.
-                </p>
-
-                <p>
-                The roles I was playing in the various teams,
-                go from developer to lead-developer, technical manager and architect.
-                </P>
-
-                <p>
-                Today, I can rely on many years of experience and a large
-                technological base to help and guide clients and companies
-                in their journey of creating a beautifull IT landscape.                
-                <img src="../assets/img/quoteclose.png" class="quoteclose">
-                </p>
-            </div>
+            </transition>        
         </div>
 
-         <div class="panel left">
+       
+
+         <div class="panel left"  v-bind:class="{rightQuoteOpen : isQuoteKseniaVisible}">
             <div class="photo">
                 <img src="../assets/img/ksenia.jpg" class="photo">
             </div>
              <transition name="slide-fade">
                 <div class="content"  v-if="isMounted">
+                  <div v-bind:class="{leftInline : isQuoteKseniaVisible}">
                     <h3>Ksenia Medova <img src="../assets/img/quote.png" class="quote" @click="toggleQuoteKsenia()">  </h3>
                     <h4>CCO / Co-founder</h4>
                     Experienced in sales and management since 2003
-                </div>
+                  </div>                        
+                  <div class="quote leftQuote" v-if="isQuoteKseniaVisible" @click="toggleQuoteKsenia()">             
+                    <p>
+                      <img src="../assets/img/quoteopen.png" class="quoteopen">  
+                      I am little
+                      </p>
+
+                      <p>
+                      I like shoes and dresses
+                      </p>
+
+                      <p>
+                      I don't like gru, gru gru
+                      </P>
+
+                      <p>    
+                      In my opinion
+                      <img src="../assets/img/quoteclose.png" class="quoteclose">
+                      </p>
+                  </div>
+                 </div>   
              </transition>
-             <div class="quote" v-if="isQuoteKseniaVisible" @click="toggleQuoteKsenia()">   
-              <hr class="option"    />
-              <p>
-                 <img src="../assets/img/quoteopen.png" class="quoteopen">  
-                I am little
-                </p>
-
-                <p>
-                I like shoes and dresses
-                </p>
-
-                <p>
-                I don't like gru, gru gru
-                </P>
-
-                <p>    
-                In my opinion
-                <img src="../assets/img/quoteclose.png" class="quoteclose">
-                </p>
-            </div>
         </div>
-
-
-        <!-- <div class="panel center">
-            All of our people are specialists in their area<br/>
-        </div> -->
+ 
     </div>
   </div>
 </template>
@@ -117,11 +117,9 @@ export default {
   methods: {
     toggleQuoteJurgen() {      
       store.dispatch('onQuoteJurgen',!this.isQuoteJurgenVisible);
-      store.dispatch('onQuoteKsenia', false)
     },
     toggleQuoteKsenia() {
       store.dispatch('onQuoteKsenia', !this.isQuoteKseniaVisible);
-      store.dispatch('onQuoteJurgen',false);
     } 
   }
 }
@@ -129,17 +127,41 @@ export default {
 
 <style scoped>
 
+div.leftQuoteOpen {
+  margin-left:0%; 
+}
+
+div.rightQuoteOpen {
+  margin-right:0%; 
+}
+
 div.quote {
   font-size:small;
   font-family: 'Roboto';
   font-style:italic;
-  z-index: 700;  
-  position:fixed; 
-  background-color:var(--modal-bg-primary);
-  padding:10px;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%); 
+  max-height: 128px;
+  overflow: auto;
+}
+
+div.leftQuote {
+    border-left:solid 1px var(--zss-theme-option);
+    margin-left:10px;
+    padding-left:10px;
+}
+
+div.rightQuote {
+    border-right:solid 1px var(--zss-theme-option);
+    margin-right:10px;
+    padding-right:10px;
+}
+
+div.leftInline {  
+  float:left;
+  margin-right: 10px;
+}
+
+div.rightFloat {  
+  float:right;
 }
 
 img.quoteopen {
@@ -165,10 +187,18 @@ img.quote {
 }
 
 @media screen and (max-width:375px) {
-  div.quote {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); 
+  div.leftInline {  
+   float:none;
   }
+
+  div.leftQuote {
+    border-left:none;
+    border-top:solid 1px var(--zss-theme-option);
+    margin-left:0px;
+    margin-top:10px;
+    padding-left:0px;
+    padding-top:0px;
+  }
+
 }
 </style>

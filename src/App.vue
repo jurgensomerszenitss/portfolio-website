@@ -47,6 +47,7 @@ export default {
 @import url('./assets/css/containers.scss'); 
 @import url('./assets/css/animations.scss'); 
 @import url('./assets/css/content.scss'); 
+@import url('./assets/css/scrollbar.scss'); 
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
