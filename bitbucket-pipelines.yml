@@ -19,8 +19,8 @@ pipelines:
         deployment: Production
         script:
           - apt-get update
-          - apt-get install ncftp
-          - ncftpput -v -u "$FTP_USERNAME" -p "$FTP_PASSWORD" -R $FTP_HOST . dist/*
+          - apt-get install lftp
+          - lftp -u $FTP_USERNAME,$FTP_PASSWORD -e "set ftp:ssl-allow no; mirror --delete -vvv -R dist .;quit" $FTP_HOST         
   branches:
     master:
      - step:
