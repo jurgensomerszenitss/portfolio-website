@@ -44,3 +44,7 @@ a:hover {
 body {
     font-family: 'Roboto', sans-serif;
 }
+
+hr.option {
+    border-bottom: solid 1px var(--zss-theme-option);
+}
