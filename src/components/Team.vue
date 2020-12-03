@@ -196,4 +196,8 @@ img.quote {
   }
  
 }
+
+p {
+    line-height: 10pt;
+}
 </style>
