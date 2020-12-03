@@ -26,7 +26,8 @@
                     <h4>CEO / founder</h4>
                     Active in IT since 2001<br/>                    
                   </div>
-                  <div class="quote leftQuote" v-if="isQuoteJurgenVisible" @click="toggleQuoteJurgen()">   
+                  <transition name="slide-up">    
+                    <div class="quote leftQuote" v-if="isQuoteJurgenVisible" >   
                     <p>
                       <img src="../assets/img/quoteopen.png" class="quoteopen">  
                       After studying 2 years of industrial computer sciences, and 3 years of business computer sciences,
@@ -49,7 +50,8 @@
                       in their journey of creating a beautifull IT landscape.                
                       <img src="../assets/img/quoteclose.png" class="quoteclose">
                       </p>
-                  </div>
+                    </div>
+                  </transition>
                 </div>
             </transition>        
         </div>
@@ -66,26 +68,28 @@
                     <h3>Ksenia Medova <img src="../assets/img/quote.png" class="quote" @click="toggleQuoteKsenia()">  </h3>
                     <h4>CCO / Co-founder</h4>
                     Experienced in sales and management since 2003
-                  </div>                        
-                  <div class="quote leftQuote" v-if="isQuoteKseniaVisible" @click="toggleQuoteKsenia()">             
-                    <p>
-                      <img src="../assets/img/quoteopen.png" class="quoteopen">  
-                      I am little
-                      </p>
-
+                  </div>   
+                  <transition name="slide-up">                         
+                    <div class="quote leftQuote" v-if="isQuoteKseniaVisible" >             
                       <p>
-                      I like shoes and dresses
-                      </p>
+                        <img src="../assets/img/quoteopen.png" class="quoteopen">  
+                        I am little
+                        </p>
 
-                      <p>
-                      I don't like gru, gru gru
-                      </P>
+                        <p>
+                        I like shoes and dresses
+                        </p>
 
-                      <p>    
-                      In my opinion
-                      <img src="../assets/img/quoteclose.png" class="quoteclose">
-                      </p>
-                  </div>
+                        <p>
+                        I don't like gru, gru gru
+                        </P>
+
+                        <p>    
+                        In my opinion
+                        <img src="../assets/img/quoteclose.png" class="quoteclose">
+                        </p>
+                    </div>
+                  </transition>
                  </div>   
              </transition>
         </div>
@@ -149,20 +153,11 @@ div.leftQuote {
     padding-left:10px;
 }
 
-div.rightQuote {
-    border-right:solid 1px var(--zss-theme-option);
-    margin-right:10px;
-    padding-right:10px;
-}
-
 div.leftInline {  
   float:left;
   margin-right: 10px;
 }
-
-div.rightFloat {  
-  float:right;
-}
+ 
 
 img.quoteopen {
   text-align: left;
@@ -186,7 +181,7 @@ img.quote {
   cursor: pointer;
 }
 
-@media screen and (max-width:375px) {
+@media screen and (max-width:768px) {
   div.leftInline {  
    float:none;
   }
@@ -195,10 +190,10 @@ img.quote {
     border-left:none;
     border-top:solid 1px var(--zss-theme-option);
     margin-left:0px;
-    margin-top:10px;
-    padding-left:0px;
-    padding-top:0px;
+    margin-top:5px;
+    padding-left:0px; 
+    padding-top:5px
   }
-
+ 
 }
 </style>
