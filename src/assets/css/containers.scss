@@ -46,10 +46,12 @@ div.content {
  
 div.panel.right {  
     margin-left:55%;  
+    /*transition: margin 700ms;*/
 }
 
 div.panel.left {  
     margin-right:55%; 
+    /* transition: margin 700ms;*/ 
 }
 
 div.panel.half-right {  

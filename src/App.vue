@@ -2,7 +2,7 @@
   <section class="VideoBg">
     <div  id="video-overlay">
      <video id="videoBG" poster="background.jpg" autoplay muted loop playsinline>
-      <source src="./assets/img/background.mp4" type="video/mp4">
+      <source src="./assets/img/background.mp4"  type="video/mp4">
     </video>
     </div>
 
@@ -85,6 +85,8 @@ export default {
 #video-overlay { 
   opacity: 1; 
 }
+
+ 
 
 @media screen and (max-width:375px){
   #routerview {
