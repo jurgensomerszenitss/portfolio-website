@@ -45,18 +45,25 @@
         </div>
 
         <div class="panel half-right">
-            <h4>Cloud solutions</h4>
-            <!-- Azure -->
+            <h4>Cloud solutions</h4>            
+            <img class="expertise" src="../assets/img/expertise/azure.png"/> 
         </div>
 
         <div class="panel half-left">
             <h4>Frameworks</h4>
-            <!-- wpf, wcf, entity framework; NHibernate, NUnit, MSTest -->
+            <img class="expertise" src="../assets/img/expertise/ef.png"/> 
+            <img class="expertise" src="../assets/img/expertise/efcore.png"/> 
+            <img class="expertise" src="../assets/img/expertise/aspnetmvc.png"/> 
+            <img class="expertise" src="../assets/img/expertise/wpf.png"/> 
+            <img class="expertise" src="../assets/img/expertise/nunit.png"/> 
+            
         </div>
 
         <div class="panel half-right">
             <h4>CI/CD</h4>
-            <!-- Devops, Bitbucket, TFS -->
+              <img class="expertise" src="../assets/img/expertise/devops.png"/> 
+              <img class="expertise" src="../assets/img/expertise/bitbucket.png"/> 
+              <img class="expertise" src="../assets/img/expertise/tfs.png"/> 
         </div>
     </div>
   </div>
