@@ -7,64 +7,15 @@
     </div>
 
     <div class="page">
-        <div class="panel half-left">
-            We deliver a variety of services, and so we support also a variety of technologies.<br/>
-            Here you can find an overview of our knowledge base.
+      <div v-for="topic in topics" :key="topic.title" class="panel" v-bind:class="topic.align">
+        <h4>{{topic.title}}</h4>       
+        <div class="expertise-container">
+          <div class="alt-wrap" v-for="item in topic.items" :key="item.label">
+            <img class="expertise" v-bind:src="require(`../assets/img/expertise/${item.icon}.png`)"/> 
+            <p class="alt">{{item.label}}</p> 
+          </div>
         </div>
-
-        <div class="panel half-right">
-            <h4>Programming languages</h4>
-            <img class="expertise" src="../assets/img/expertise/csharp.png"/> 
-            <img class="expertise" src="../assets/img/expertise/angular.png"/> 
-            <img class="expertise" src="../assets/img/expertise/vue.png"/> 
-            <img class="expertise" src="../assets/img/expertise/nodejs.png"/> 
-            <img class="expertise" src="../assets/img/expertise/javascript.png"/> 
-
-            <!-- <img class="expertise" src="../assets/img/expertise/aspnet.png"/>             
-            <img class="expertise" src="../assets/img/expertise/entityframework.png"/> 
-            <img class="expertise" src="../assets/img/expertise/iis.png"/> 
-            
-            <img class="expertise" src="../assets/img/expertise/mstest.png"/> 
-            <img class="expertise" src="../assets/img/expertise/nhibernate.png"/> 
-            
-            <img class="expertise" src="../assets/img/expertise/nunit.png"/> 
-    
-            <img class="expertise" src="../assets/img/expertise/tfs.png"/> 
-            <img class="expertise" src="../assets/img/expertise/wcf.png"/> 
-            <img class="expertise" src="../assets/img/expertise/wpf.png"/>  -->
-        </div>
-
-        <div class="panel half-left">
-            <h4>Databases</h4>
-            <img class="expertise" src="../assets/img/expertise/sql_server.png"/> 
-            <img class="expertise" src="../assets/img/expertise/oracle.png"/> 
-            <img class="expertise" src="../assets/img/expertise/mongodb.png"/>             
-            <img class="expertise" src="../assets/img/expertise/cosmosdb.png"/>   
-            <img class="expertise" src="../assets/img/expertise/postgresql.png"/>   
-            <img class="expertise" src="../assets/img/expertise/mysql.png"/>   
-        </div>
-
-        <div class="panel half-right">
-            <h4>Cloud solutions</h4>            
-            <img class="expertise" src="../assets/img/expertise/azure.png"/> 
-        </div>
-
-        <div class="panel half-left">
-            <h4>Frameworks</h4>
-            <img class="expertise" src="../assets/img/expertise/ef.png"/> 
-            <img class="expertise" src="../assets/img/expertise/efcore.png"/> 
-            <img class="expertise" src="../assets/img/expertise/aspnetmvc.png"/> 
-            <img class="expertise" src="../assets/img/expertise/wpf.png"/> 
-            <img class="expertise" src="../assets/img/expertise/nunit.png"/> 
-            
-        </div>
-
-        <div class="panel half-right">
-            <h4>CI/CD</h4>
-              <img class="expertise" src="../assets/img/expertise/devops.png"/> 
-              <img class="expertise" src="../assets/img/expertise/bitbucket.png"/> 
-              <img class="expertise" src="../assets/img/expertise/tfs.png"/> 
-        </div>
+      </div> 
     </div>
   </div>
 </template>
@@ -77,7 +28,8 @@ export default {
   name: 'Expertise',
    computed: {  
     ...mapGetters({  
-    isMounted:"isExpertiseMounted"
+    isMounted:"isExpertiseMounted",
+    topics:"expertiseItems"
     }),
   },
   mounted() {
@@ -90,11 +42,59 @@ export default {
 </script>
 
 <style scoped>
+
+ .alt-wrap {
+  position: relative; 
+  margin:5px;
+}
+
+p.alt {
+  position: absolute;
+  opacity: 0; /* hide initially  */
+  left: 0; right: 0; bottom: 0;
+  margin: 0;
+  padding: 2px;
+  font-size: 12px;
+  line-height: 14px;
+  background-color: rgba(0,0,0,0.8);
+  transition: all 300ms ease;
+  transition-delay: 300ms;
+}
+
+.alt-wrap:hover > p.alt { 
+  opacity: 1; 
+  transition-delay: 0s;
+}
+
+div.expertise-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
  
- img.expertise {
-     width:64px;
-     height:64px;
-     background-color:white;
-     margin:5px;
- }
+
+img.expertise {
+  width:64px;
+  height:64px;
+  background-color:white;
+  margin:0px;
+  display:block;
+}
+
+@media screen and (max-width:768px) { 
+  p.alt {
+    opacity: 1;
+  }
+
+  div.expertise-container {
+   flex-wrap: wrap; 
+  }
+}
+
+@media screen and (max-width:666px) {   
+  div.expertise-container { 
+   align-content: flex-start;
+   justify-content: flex-start;
+  }
+}
 </style>

@@ -17,14 +17,15 @@
 
         <div class="panel right" v-bind:class="{openLeft : isQuoteJurgenVisible}">
            <div class="photo">
-               <img src="../assets/img/jurgen.jpg" class="photo" >               
+               <img src="../assets/img/jurgen.jpg" class="photo" @click="toggleQuoteJurgen()">               
             </div>
-            <transition name="slide-fade">               
+            <!-- <transition name="slide-fade">                -->
               <div class="content" v-if="isMounted">
                 <div v-bind:class="{inline : isQuoteJurgenVisible}">
-                  <h3>Jurgen Somers <img src="../assets/img/quote.png" class="quote" @click="toggleQuoteJurgen()">  </h3>
+                  <h3>Jurgen Somers  <div  @click="toggleQuoteJurgen()"  class="quoteButton" v-bind:class="{quoteButtonHide : isQuoteJurgenVisible}"/></h3>
                   <h4>CEO / founder</h4>
-                  Active in IT since 2001<br/>                    
+                  Active in IT since 2001               
+                  <!-- <img src="../assets/img/quote_hor_show.png" class="quote" @click="toggleQuoteJurgen()" v-if="!isQuoteJurgenVisible"> -->
                 </div>
                 <div class="quote openLeft" v-if="isQuoteJurgenVisible" >   
                   <p>
@@ -51,7 +52,7 @@
                   </p>
                 </div>
               </div>
-          </transition>        
+          <!-- </transition>         -->
         </div> 
 
 
@@ -62,10 +63,10 @@
              <transition name="slide-fade">
                 <div class="content"  v-if="isMounted">
                   <div v-bind:class="{inline : isQuoteKseniaVisible}">
-                    <h3>Ksenia Medova <img src="../assets/img/quote.png" class="quote" @click="toggleQuoteKsenia()">  </h3>
+                    <h3>Ksenia Medova    <div  @click="toggleQuoteKsenia()"  class="quoteButton" v-bind:class="{quoteButtonHide : isQuoteKseniaVisible}"/></h3>
                     <h4>CCO / Co-founder</h4>
-                    Experienced in sales and management since 2003
-                  </div>  
+                    Experienced in sales and management since 2003                 
+                  </div>                    
                   <div class="quote openRight" v-if="isQuoteKseniaVisible" >             
                     <p>
                       <img src="../assets/img/quoteopen.png" class="quoteopen">  
@@ -147,20 +148,24 @@ div.quote {
   padding-left:10px;
 } 
 
+div.content {
+  max-height: 128px;
+}
+
 div.inline {  
   float:left;
   margin-right: 10px;
   width:calc(50% - 128px);
 }
- 
+   /* 
 div.panel.right {   
-    transition: margin 700ms;
+  transition: margin 700ms;  
 }
 
 div.panel.left {   
-    transition: margin 700ms;
-}
-
+    /* transition: margin 700ms; 
+}*/
+/* 
 img.quoteopen {
   text-align: left;
   width:24px;
@@ -171,8 +176,8 @@ img.quoteclose {
   text-align: right;
   width:24px;
   height:24px;
-}
-
+} */
+/* 
 img.quote {
   position:relative;
   top:-8px;
@@ -181,9 +186,39 @@ img.quote {
   height:24px;
   text-align: right;
   cursor: pointer;
+} */
+
+div.quoteButton {
+  background-image: url("../assets/img/quote_hor_show.png");
+  background-repeat:no-repeat;
+  max-width:24px;
+  max-height:24px;
+  width:48px;
+  height:48px;
+  float:right;
+  cursor:pointer;
+}
+
+div.quoteButtonHide {
+  background-image: url("../assets/img/quote_hor_hide.png")!important;  
 }
 
 @media screen and (max-width:768px) {
+
+  div.content {
+    max-height: unset;
+  }
+
+  div.quoteButton {
+    background-image: url("../assets/img/quote_ver_show.png");  
+  }
+
+
+  div.quoteButtonHide {
+    background-image: url("../assets/img/quote_ver_hide.png")!important;  
+  }
+
+
   div.inline {  
     float:none;
     width:100%;
