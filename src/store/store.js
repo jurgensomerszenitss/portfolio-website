@@ -7,6 +7,7 @@ import { homeState, homeMutations, homeGetters, homeActions} from './home.store'
 import { teamState, teamMutations, teamGetters, teamActions} from './team.store';
 import { servicesState, servicesMutations, servicesGetters, servicesActions} from './services.store';
 import { expertiseState, expertiseMutations, expertiseGetters, expertiseActions} from './expertise.store';
+import { contactState, contactMutations, contactGetters, contactActions} from './contact.store';
 
 Vue.use(Vuex);
 
@@ -20,6 +21,7 @@ export const store = new Vuex.Store({
         ...teamState,
         ...servicesState,
         ...expertiseState,
+        ...contactState,
     },
     getters : {
         ...routerGetters,
@@ -27,6 +29,7 @@ export const store = new Vuex.Store({
         ...teamGetters,
         ...servicesGetters,
         ...expertiseGetters,
+        ...contactGetters,
     },
     mutations:{
         ...routerMutations,
@@ -34,6 +37,7 @@ export const store = new Vuex.Store({
         ...teamMutations,
         ...servicesMutations,
         ...expertiseMutations,
+        ...contactMutations,
     },
     actions:{
         ...routerActions,
@@ -41,5 +45,6 @@ export const store = new Vuex.Store({
         ...teamActions,
         ...servicesActions,
         ...expertiseActions,
+        ...contactActions,
     }
 });

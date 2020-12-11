@@ -53,3 +53,34 @@ hr.option {
 p {
     line-height: 18pt;
 }
+ 
+input {
+    background-color: var(--input-bg)!important;
+    color: var(--input-fg)!important;
+}
+
+input:focus{
+    background-color: var(--input-bg-focus)!important;
+    color: var(--input-fg-focus)!important;
+}
+
+textarea {
+    background-color: var(--input-bg)!important;
+    color: var(--input-fg)!important;
+}
+
+textarea:focus {
+    background-color: var(--input-bg-focus)!important;
+    color: var(--input-fg-focus)!important;
+}
+
+button.primary {
+    font-family: 'Roboto', sans-serif;
+    background-color:var(--zss-theme-primary);
+    border:solid 1px var(--zss-theme-primary);
+    border-radius: 10px;
+    color: white;
+    font-size:16px;
+    padding:5px;
+    margin:5px;
+}
