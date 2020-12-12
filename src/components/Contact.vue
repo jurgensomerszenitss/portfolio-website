@@ -18,7 +18,7 @@
         </div>
 
         <div class="panel content">
-            <form class="contact-form needs-validation" @submit.prevent="sendEmail">
+            <form v-if="!isSent" class="contact-form needs-validation" @submit.prevent="sendEmail">
                 <div class="col-md-6">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="from_name" required>
@@ -32,22 +32,25 @@
 
                 <div class="col-md-6">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="from_email" required>
+                    <input type="email" class="form-control" id="email" name="from_email" required >
                 </div>
 
                 <div class="col-md-6">
                     <label for="message" class="form-label">Message</label>
                     <textarea name="message" class="form-control" id="message" required></textarea>
                 </div>
-                <button type="submit" class="primary">Send</button>
+                <button type="submit" class="primary"><img class="button" src="../assets/img/send.png">Send</button>
             </form>
+            <div v-if="isSent">
+                Thank you for your message. We will contact you soon.
+                <button type="button" class="primary" v-on:click="resetEmail()"><img class="button" src="../assets/img/back.png">Back to email</button>
+            </div>
         </div>  
     </div>
     </div>
 </template>
 
 <script>
-import emailjs from 'emailjs-com';
 import { mapGetters } from "vuex";
 import { store }  from '../store/store'; 
 
@@ -55,23 +58,28 @@ export default {
   name: 'Contact',
    computed: {  
     ...mapGetters({  
-    isMounted:"isContactMounted", 
-    }),
+        isMounted:"isContactMounted", 
+        isSent:"isContactEmailSend",
+    })
   },
   mounted() {
     store.dispatch('onContactMounted',true);
-  },
-  beforeDestroy(){
+  }, 
+  beforeDestroy(){ 
     store.dispatch('onContactMounted',false);
   },
   methods : {
-      sendEmail: (e) => {
-      emailjs.sendForm('service_176vlub', 'template_g76qwhf', e.target, 'user_Vv4uOR6MOEdRgrLC0HIE3')
-        .then((result) => {
-            console.log('SUCCESS!', result.status, result.text);
-        }, (error) => {
-            console.log('FAILED...', error);
-        });
+    sendEmail: (e) => {
+          var elements = [];
+          e.target.forEach(ctrl =>  {
+              elements.push(`"${ctrl.name}" : "${ctrl.value}"`);
+          });
+          const json = `{${elements.join(',')}}`;
+          const email = JSON.parse(json);
+          store.dispatch('onContactSendMail',email);
+    },
+    resetEmail : () => {
+        store.dispatch('onContactResetMail');        
     }
   }
 }
