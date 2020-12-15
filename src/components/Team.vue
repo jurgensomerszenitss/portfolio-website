@@ -19,40 +19,40 @@
            <div class="photo">
                <img src="../assets/img/jurgen.jpg" class="photo" @click="toggleQuoteJurgen()">               
             </div>
-            <!-- <transition name="slide-fade">                -->
-              <div class="content" v-if="isMounted">
-                <div v-bind:class="{inline : isQuoteJurgenVisible}">
-                  <h3>Jurgen Somers  <div  @click="toggleQuoteJurgen()"  class="quoteButton" v-bind:class="{quoteButtonHide : isQuoteJurgenVisible}"/></h3>
-                  <h4>CEO / founder</h4>
-                  Active in IT since 2001               
-                  <!-- <img src="../assets/img/quote_hor_show.png" class="quote" @click="toggleQuoteJurgen()" v-if="!isQuoteJurgenVisible"> -->
+              <transition name="slide-fade">
+                <div class="content" v-if="isMounted">
+                  <div v-bind:class="{inline : isQuoteJurgenVisible}">
+                    <h3>Jurgen Somers  <div  @click="toggleQuoteJurgen()"  class="quoteButton" v-bind:class="{quoteButtonHide : isQuoteJurgenVisible}"/></h3>
+                    <h4>CEO / founder</h4>
+                    Active in IT since 2001               
+                    <!-- <img src="../assets/img/quote_hor_show.png" class="quote" @click="toggleQuoteJurgen()" v-if="!isQuoteJurgenVisible"> -->
+                  </div>
+                  <div class="quote openLeft" v-if="isQuoteJurgenVisible" >   
+                    <p>
+                      <img src="../assets/img/quoteopen.png" class="quoteopen">  
+                      After studying 2 years of industrial computer sciences, and 3 years of business computer sciences,
+                      I started to work as a developer at Real Software.
+                    </p>
+
+                    <p>
+                      A few years later, I decided to work as a freelancer, 
+                      providing consultancy for some major international companies.
+                    </p>
+
+                    <p>
+                      The roles I was playing in the various teams,
+                      go from developer to lead-developer, technical manager and architect.
+                    </P>
+
+                    <p>
+                      Today, I can rely on many years of experience and a large
+                      technological base to help and guide clients and companies
+                      in their journey of creating a beautifull IT landscape.                
+                      <img src="../assets/img/quoteclose.png" class="quoteclose">
+                    </p>
+                  </div>
                 </div>
-                <div class="quote openLeft" v-if="isQuoteJurgenVisible" >   
-                  <p>
-                    <img src="../assets/img/quoteopen.png" class="quoteopen">  
-                    After studying 2 years of industrial computer sciences, and 3 years of business computer sciences,
-                    I started to work as a developer at Real Software.
-                  </p>
-
-                  <p>
-                    A few years later, I decided to work as a freelancer, 
-                    providing consultancy for some major international companies.
-                  </p>
-
-                  <p>
-                    The roles I was playing in the various teams,
-                    go from developer to lead-developer, technical manager and architect.
-                  </P>
-
-                  <p>
-                    Today, I can rely on many years of experience and a large
-                    technological base to help and guide clients and companies
-                    in their journey of creating a beautifull IT landscape.                
-                    <img src="../assets/img/quoteclose.png" class="quoteclose">
-                  </p>
-                </div>
-              </div>
-          <!-- </transition>         -->
+              </transition>        
         </div> 
 
 

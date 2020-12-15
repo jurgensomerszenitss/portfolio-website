@@ -27,7 +27,7 @@ export const contactActions = {
         commit('CONTACT_MOUNTED', isMounted); 
     },
     onContactSendMail({commit}, email ) { 
-        EmailService.send(email).then(
+        EmailService.sendContact(email).then(
             () => {
                 commit('CONTACT_EMAILSEND', true);
             },

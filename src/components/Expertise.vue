@@ -8,14 +8,18 @@
 
     <div class="page">
       <div v-for="topic in topics" :key="topic.title" class="panel" v-bind:class="topic.align">
-        <h4>{{topic.title}}</h4>       
-        <div class="expertise-container">
-          <div class="alt-wrap" v-for="item in topic.items" :key="item.label">
-            <img class="expertise" v-bind:src="require(`../assets/img/expertise/${item.icon}.png`)"/> 
-            <p class="alt">{{item.label}}</p> 
-          </div>
-        </div>
-      </div> 
+        <transition name="slide-fade">
+          <div v-if="isMounted">
+            <h4>{{topic.title}}</h4>       
+            <div class="expertise-container">         
+              <div class="alt-wrap" v-for="item in topic.items" :key="item.label">
+                <img class="expertise" v-bind:src="require(`../assets/img/expertise/${item.icon}.png`)"/> 
+                <p class="alt">{{item.label}}</p> 
+              </div> 
+            </div>        
+          </div> 
+        </transition>
+      </div>
     </div>
   </div>
 </template>
