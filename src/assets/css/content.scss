@@ -12,6 +12,20 @@ img.topic {
     border-radius: 5px;
 }
 
+img.button {
+    width:24px;
+    height:24px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+img.link {
+    width:20px;
+    height:20px;
+    margin:4px;
+    background-color: white;
+    cursor:pointer;
+}
 
 h1 {
     font-family: 'Goldman', sans-serif;    
@@ -83,11 +97,4 @@ button.primary {
     font-size:16px;
     padding:10px;
     margin:5px;
-}
-
-img.button {
-    width:24px;
-    height:24px;
-    margin-left: 5px;
-    margin-right: 5px;
 }
